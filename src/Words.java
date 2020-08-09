@@ -23,8 +23,7 @@ public class Words {
     public boolean compareSpanish(String words) {
         return this.spanish.equals(words);
     }
-    
-    
+      
     public boolean compareFormBase(String words) {
         return this.formBase.equals(words);
     }
@@ -35,7 +34,7 @@ public class Words {
     
     public String message(int tipo) {
         String message = "";
-        switch(tipo){
+        switch(tipo) { // cambiar por un Map o un hash
             case 1: message = "ESCRIBE LA RESPUESTA EN SU INFINITIVO \t" + this.passSimple;
                 break;
             case 2: message = "ESCRIBE LA RESPUESTA EN SU PASADO \t " + this.formBase;

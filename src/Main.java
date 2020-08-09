@@ -24,6 +24,8 @@ public class Main {
         Secuence secuence = new Secuence(listWords, viewVerbsIrregulars);
         secuence.run();
         
+//        ViewMain viewMain = new ViewMain();
+        
     }
     
 }
