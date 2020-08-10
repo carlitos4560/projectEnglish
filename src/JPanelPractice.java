@@ -64,6 +64,7 @@ public class JPanelPractice extends JPanel {
     public void text() {
         String textAnswer = this.subtitle.getText();
         textAnswer = textAnswer.toUpperCase();
+        textAnswer = textAnswer.trim();
         this.subtitle.setText("");
         String []word = this.verbs.verbs(textAnswer, this.contador);
         this.viewError.setContador(5);// contadro de vista

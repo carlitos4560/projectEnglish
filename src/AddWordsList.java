@@ -28,9 +28,9 @@ public class AddWordsList {
         listWords.insertWords(words);
         words = new Words("TRAER","BRING","BROUGHT");
         listWords.insertWords(words);
-        words = new Words("CONTRUIR","BUILD","BUILT");
+        words = new Words("CONSTRUIR","BUILD","BUILT");
         listWords.insertWords(words);
-        words = new Words("PAGAR","BUY","BOUGHT");
+        words = new Words("COMPRAR","BUY","BOUGHT");
         listWords.insertWords(words);
         words = new Words("ATRAPAR","CATCH","CAUGHT");
         listWords.insertWords(words);
@@ -84,7 +84,7 @@ public class AddWordsList {
         listWords.insertWords(words);
         words = new Words("SOSTENER","HOLD","HELD");
         listWords.insertWords(words);
-        words = new Words("HERRIR","HURT","HURT");
+        words = new Words("HERIR","HURT","HURT");
         listWords.insertWords(words);
         words = new Words("MANETENER","KEEP","KEPT");
         listWords.insertWords(words);
