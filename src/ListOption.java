@@ -26,7 +26,7 @@ public class ListOption implements IListOption {
     public void addList() {
         this.list.add("Base");
         this.list.add("Pasado");
-        this.list.add("Spañol");
+        this.list.add("Spanish");
     }
     @Override
     public int size(){

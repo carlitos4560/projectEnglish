@@ -1,11 +1,4 @@
-
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.MenuItem;
-import java.awt.PopupMenu;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 /*
@@ -24,15 +17,17 @@ public class ViewMain extends JFrame {
     private final JPanelOption jPanelOption;
     private final Eventos eventos;
     private JPanelPractice panel2;
+    private IFactory factory;
+    private Verbs verbs;
     
-    public ViewMain(){
+    public ViewMain(IFactory factory){
         this.eventos = new Eventos(this);
         this.listOption = new ListOption();
         this.jPanelOption = new JPanelOption(this.listOption, this, eventos);
-        
+        this.factory = factory;
         this.setTitle("Practica de Ingles");
         
-        this.setSize(600, 400);
+        this.setSize(600, 450);
         this.setLocation(200, 200);
         this.setVisible(true);    
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,15 +36,13 @@ public class ViewMain extends JFrame {
     
     public void addPanel(JPanel panel) {
         this.add(panel, BorderLayout.NORTH);
-        panel2 = new JPanelPractice();
+        this.panel2 = new JPanelPractice();
         this.add(panel2, BorderLayout.CENTER);
     }
     
     public void section(String name) {
-        System.out.println("\n boton \t"+ name);
-        this.panel2.setTitle(name);
-//        JPanelPractice panel2 = new JPanelPractice(this, name);
-//        this.add(panel2, BorderLayout.CENTER);
-//        repaint();
+        this.panel2.setTitle(name.trim());
+        this.panel2.setVerbs(this.factory, name.trim());
+        this.panel2.scoordCero();
     }
 }

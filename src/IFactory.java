@@ -8,6 +8,6 @@
  *
  * @author lola
  */
-public class JPanel {
-    
+interface IFactory {
+    Verbs kinOfVers(String key);
 }

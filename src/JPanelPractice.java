@@ -1,14 +1,7 @@
-
-import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 /*
@@ -25,70 +18,68 @@ public class JPanelPractice extends JPanel {
     
     private ViewMain jFrame;
     private JLabel title;
-    private JButton next;
-    private JTextField jTextFile;
-    private final Box box1;
-    private final Box box;
-    private final Box boxVertical;
+    private JTextField subtitle;
+    private JTextField text;
     private Answer answer;
     private ViewError viewError;
+    private Verbs verbs;
+    private int contador;
+    
     public JPanelPractice() {
+        this.contador= 0;
+        this.verbs = null;
         this.answer = new Answer();
         this.viewError = new ViewError();
         this.title = new JLabel("Bien venido");
         this.title.setFont(new Font("Helvetica", Font.PLAIN, 20)); 
-//        this.setBackground(Color.darkGray);
-        
-        this.box = Box.createHorizontalBox();
-//        this.jTextFile.setBounds(100, 100, 100, 100);
-        
-        this.jTextFile = new JTextField();
-        this.box1 = Box.createHorizontalBox();
-        this.boxVertical = Box.createVerticalBox();
+        this.subtitle = new JTextField();
+        this.text = new JTextField();
         this.add(title);
-        this.next = new JButton("Next");
-        
-        
-//        System.out.println(name)
-//        this.setBounds(5, 10, 590, 360);
+        this.add(new JLabel("PRUEBA VERBOS IRREGULARES"));
     }    
     
     public void setTitle(String name) {
-        this.title.setText("Escribe el Verbo en :: " + name);     
-        this.title.setFont(new Font("Helvetica", Font.PLAIN, 20)); 
+        this.title.setText("Escribe el Verbo en :: " + name ); //+ " =>" + verb);     
+        this.title.setFont(new Font("Helvetica", Font.PLAIN, 20));
         this.removeAll();
-        //JLabel answer = new JLabel("Answer");
-        this.jTextFile = new JTextField("", 20);
-        this.jTextFile.setMaximumSize(this.jTextFile.getPreferredSize());
-        
-//        box = Box.createHorizontalBox();
-//        box.add(this.jTextFile);
-//        box.add(this.next);
-//        box.add(Box.createHorizontalStrut(10));
-        
-//        JLabel answer = new JLabel("Answer :: ");
-//        JLabel answerSistem = new JLabel("Answer Sistem :: ");
-//        JLabel youAnswer = new JLabel("");
-//        JLabel correctAnswer = new JLabel("");
-        
-//        box1 = Box.createHorizontalBox();
-//        box1.add(this.jTextFile);
-//        box1.add(Box.createHorizontalStrut(10));
-        
-//        this.boxVertical = Box.createVerticalBox();
-//        this.boxVertical.add(this.box);
-//        this.boxVertical.add(this.box1);
-//        this.add(this.boxVertical);
-//        this.add(box);
-        
-//        this.next.setBounds(200, 200, 200, 200);
-        this.setLayout (new BoxLayout (this, BoxLayout.Y_AXIS));  
-//        this.setLayout (new BoxLayout(this, BoxLayout.X_AXIS));
+        this.subtitle = new JTextField("", 20);
+        this.subtitle.setMaximumSize(this.subtitle.getPreferredSize());
+        this.setLayout (new BoxLayout (this, BoxLayout.Y_AXIS));
+        JButton next = new JButton("Next");
+        next.addActionListener(new EventoMouse(this));
         this.add(this.title);
-        this.add(this.jTextFile);
-        this.add(this.next);
+        this.add(this.text);
+        this.add(this.subtitle);
+        this.add(next);
         this.repaint();
         this.add(answer);
-        this.add(this.viewError);
+        this.add(this.viewError); 
+    }
+    public void setVerbs(IFactory factory, String key){
+        this.verbs = factory.kinOfVers(key);        
+        this.text.setFont(new Font("Helvetica", Font.PLAIN, 50));
+        this.text.setText(this.verbs.verbs(this.contador));
+    }
+    public void text() {
+        String textAnswer = this.subtitle.getText();
+        textAnswer = textAnswer.toUpperCase();
+        this.subtitle.setText("");
+        String []word = this.verbs.verbs(textAnswer, this.contador);
+        this.viewError.setContador(5);// contadro de vista
+        this.answer.setColor(Boolean.parseBoolean(word[2]), textAnswer, word[1]);
+        int actualizarCont = this.verbs.actualizarContenedor(word[2]);
+        this.viewError.setContador(actualizarCont);
+        this.contador++;
+        if(this.contador > this.verbs.size() - 1) {
+            this.contador = 0;
+        }
+        this.text.setText(this.verbs.verbs(this.contador));
+    }
+    
+    public void scoordCero(){
+        this.contador = 0;
+        this.text.setText(this.verbs.verbs(this.contador));
+        this.answer.defaultAnswer();
+        this.viewError.setContador(0);
     }
 }

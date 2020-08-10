@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BoxLayout;
@@ -36,10 +35,10 @@ public class Answer extends JPanel {
         String showSystem = "System :: " + system;
         this.setBackground(Color.red);
         if(answer) {
-            this.answer.setText(showAnswer);
-            this.answerSystem.setText(showSystem);
-            this.setBackground(Color.LIGHT_GRAY);
+            this.setBackground(Color.CYAN);
         }
+        this.answer.setText(showAnswer);
+        this.answerSystem.setText(showSystem);
     }
     
     public void defaultAnswer() {
@@ -47,6 +46,7 @@ public class Answer extends JPanel {
         String showSystem = "System :: ";
         this.answer.setText(showAnswer);
         this.answerSystem.setText(showSystem);
+        this.setBackground(Color.LIGHT_GRAY);
     }
     
 }

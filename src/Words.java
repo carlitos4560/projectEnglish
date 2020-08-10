@@ -19,38 +19,39 @@ public class Words {
         this.formBase = formBase;
         this.passSimple = passSimple;
     }
+
+    public String[] compareSpanish(String words) {
+        String[] response = new String[3];
+        boolean equals = this.spanish.equals(words);
+        response[0] = words;
+        response[1] = this.spanish;
+        response[2] = "" + equals;
+        return response;
+    }
+    public String[] compareFormBase(String words) {
+        String[] response = new String[3];
+        boolean equals = this.formBase.equals(words);
+        response[0] = words;
+        response[1] = this.formBase;
+        response[2] = "" + equals;
+        return response;
+    }
+    public String[] comparePassSimple(String words) {
+        String[] response = new String[3];
+        boolean equals = this.passSimple.equals(words);
+        response[0] = words;
+        response[1] = this.passSimple;
+        response[2] = "" + equals;
+        return response;
+    }
+    public String spanish(){
+        return this.spanish;
+    }
+    public String passSimple(){
+        return this.passSimple;
+    }
+    public String formaBase(){
+        return this.formBase;
+    }
     
-    public boolean compareSpanish(String words) {
-        return this.spanish.equals(words);
-    }
-      
-    public boolean compareFormBase(String words) {
-        return this.formBase.equals(words);
-    }
-    
-    public boolean comparePassSimple(String words) {
-        return this.passSimple.equals(words);
-    }
-    
-    public String message(int tipo) {
-        String message = "";
-        switch(tipo) { // cambiar por un Map o un hash
-            case 1: message = "ESCRIBE LA RESPUESTA EN SU INFINITIVO \t" + this.passSimple;
-                break;
-            case 2: message = "ESCRIBE LA RESPUESTA EN SU PASADO \t " + this.formBase;
-                break;
-            case 3: message = "ESCRIBE LA RESPUESTA EN SPANIOL \t " + this.formBase;
-                break;
-        }
-        return message;
-    }
-    public String getFormBase(){
-        return this.formBase ;
-    }
-    public String getPassSimple(){
-        return this.passSimple ;
-    }
-    public String getSpanish(){
-        return this.spanish ;
-    }
 }

@@ -28,7 +28,7 @@ public class ViewError extends JPanel{
     }
     
     public void setContador(int errores) {
-        String viewErrors = "" + errores;
+        String viewErrors = "Errores :: " + errores;
         this.contador.setText(viewErrors);
     }
 }

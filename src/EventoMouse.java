@@ -1,4 +1,3 @@
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,18 +11,20 @@ import java.awt.event.ActionListener;
  *
  * @author lola
  */
-public class Eventos implements ActionListener{
+public class EventoMouse implements ActionListener{
     
-    private ViewMain jFrame;
+    private JPanelPractice jPanelPractice;
+    private int cont;
     
-    public Eventos(ViewMain jFrame){
-        this.jFrame = jFrame;
+    public EventoMouse(JPanelPractice jPanelPractice){
+        this.jPanelPractice = jPanelPractice;
+        this.cont = 0;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         String nombre = e.getActionCommand();
-        this.jFrame.section(nombre);
+        this.jPanelPractice.text();   
     }
     
 }

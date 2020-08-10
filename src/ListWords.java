@@ -1,5 +1,3 @@
-
-import static java.util.Collections.list;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,6 +26,18 @@ public class ListWords {
     
     public Words words(int position) {
         return this.listWord.get(position);
+    }
+    
+    public String[] wordsSpanish(int position, String word) {
+        return this.listWord.get(position).compareSpanish(word);
+    }
+    
+    public String[] wordsPassSimple(int position, String word) {
+        return this.listWord.get(position).comparePassSimple(word);
+    }
+    
+    public String[] wordsBase(int position, String word) {
+        return this.listWord.get(position).compareFormBase(word);
     }
     
     public int size(){

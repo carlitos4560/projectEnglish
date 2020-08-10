@@ -8,7 +8,7 @@
  *
  * @author lola
  */
-public class Response {
+public class Response implements IResponse{
     
     private int correct;
     private int incorrect;
@@ -18,23 +18,16 @@ public class Response {
         this.incorrect = 0;
     }
     
-    public void correct(boolean response){
+    @Override
+    public int inCorrect(boolean response){
+//        int response = (response):this.correcto++ ?this.incorrect++;
         if(response){
             this.correct++;
         }
         else{
             this.incorrect++;
         }
+        return this.incorrect;
     }
-    
-    @Override
-    public String toString() {
-        String toString = "CORRECT \t INCORRECT \n "+ this.correct +"\t\t"+ this.incorrect;
-        double porcentageCorrecto = 0.0;
-        if(this.correct > 0) {
-            porcentageCorrecto = this.correct / (this.correct + this.incorrect);
-        }
-        return toString + "\n prorcentage correcto :" + porcentageCorrecto;
-    }
-    
+        
 }
