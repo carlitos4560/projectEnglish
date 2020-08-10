@@ -47,6 +47,7 @@ public class JPanelPractice extends JPanel {
         this.setLayout (new BoxLayout (this, BoxLayout.Y_AXIS));
         JButton next = new JButton("Next");
         next.addActionListener(new EventoMouse(this));
+        this.subtitle.addKeyListener(new EvenKey(this));
         this.add(this.title);
         this.add(this.text);
         this.add(this.subtitle);

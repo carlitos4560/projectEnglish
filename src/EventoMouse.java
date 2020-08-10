@@ -14,11 +14,9 @@ import java.awt.event.ActionListener;
 public class EventoMouse implements ActionListener{
     
     private JPanelPractice jPanelPractice;
-    private int cont;
     
     public EventoMouse(JPanelPractice jPanelPractice){
         this.jPanelPractice = jPanelPractice;
-        this.cont = 0;
     }
 
     @Override
