@@ -11,7 +11,8 @@
 public class AddWordsList {
     
     
-    public void addWords(ListWords listWords){
+    public void addWords(ListWords listWords){  
+        //Español , infinitivo, pasado simple
         Words words = new Words("SER O ESTAR","BE","WAS OR WERE");
         listWords.insertWords(words);
         words = new Words("LATIR","BEAT","BEAT");
@@ -20,7 +21,7 @@ public class AddWordsList {
         listWords.insertWords(words);
         words = new Words("EMPEZAR","BEGIN","BEGAN");
         listWords.insertWords(words);
-        words = new Words("MODER","BITE","BIT");
+        words = new Words("MORDER","BITE","BIT");
         listWords.insertWords(words);
         words = new Words("SOPLAR","BLOW","BLEW");
         listWords.insertWords(words);
@@ -86,7 +87,7 @@ public class AddWordsList {
         listWords.insertWords(words);
         words = new Words("HERIR","HURT","HURT");
         listWords.insertWords(words);
-        words = new Words("MANETENER","KEEP","KEPT");
+        words = new Words("MANTENER","KEEP","KEPT");
         listWords.insertWords(words);
         words = new Words("SABER CONOCER","KNOW","KNEW");
         listWords.insertWords(words);
@@ -175,7 +176,7 @@ public class AddWordsList {
         listWords.insertWords(words);
         words = new Words("GANAR","WIN","WON");
         listWords.insertWords(words);
-        words = new Words("WRITE","WRITE","WROTE");
+        words = new Words("ESCRIBIR","WRITE","WROTE");
         listWords.insertWords(words);
 //        words = new Words("","","");
 //        listWords.insertWords(words);
